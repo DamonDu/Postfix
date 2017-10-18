@@ -24,6 +24,13 @@ class Parser {
 			System.out.write('-');
 			return 0;
 		} else {
+			if (Character.isDigit((char)lookahead)) {
+				throw new Error("Syntax error: ");
+			}
+			else {
+				throw new Error("error: The '" + (char)lookahead + "' is not allowed in input.");
+			}
+			lookahead = System.in.read();
 			return 1;
 		}
 	}
@@ -32,11 +39,21 @@ class Parser {
 		if (Character.isDigit((char)lookahead)) {
 			System.out.write((char)lookahead);
 			match(lookahead);
-		} else  throw new Error("syntax error");
+		} else {
+			if (lookahead == '+' || lookahead == '-') {
+				throw new Error("Syntax error:");
+			}
+			else {
+				throw new Error("error: The '" + (char)lookahead + "' is not allowed in input.");
+			}
+			
+		}
 	}
 
 	void match(int t) throws IOException {
-		if (lookahead == t)  lookahead = System.in.read();
+		if (lookahead == t) {
+			lookahead = System.in.read();
+		}
 		else  throw new Error("syntax error");
 	}
 }
