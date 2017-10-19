@@ -1,2 +1,2 @@
-javac -d bin src\Postfix.java
+javac -d bin -encoding UTF-8 src\Postfix.java
 pause

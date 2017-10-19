@@ -1,2 +1,2 @@
-javadoc -d doc -private src\Postfix.java
+javadoc -d doc -private -encoding UTF-8 src\Postfix.java
 pause
